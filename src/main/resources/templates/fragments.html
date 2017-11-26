@@ -24,8 +24,23 @@
                     <li><a th:href="@{/list}">List</a></li>
                 </ul>
             </div>
+
         </div>
     </div>
+    <div th:fragment="result-display">
 
+        <div th:each="job,idx : ${jobs}" th:class="${idx.odd} ? 'odd'">
+            <h3 th:text="${results}"></h3>
+            <table class="job-listing" th:each="job : ${jobs}">
+                <tbody>
+                <tr th:each="entry : ${job}">
+
+                    <td th:text="${entry.key}"></td>
+                    <td th:text="${entry.value}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
